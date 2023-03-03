@@ -5,7 +5,7 @@ import app.product.subproduct.Hamburger;
 import app.product.subproduct.Side;
 
 public class ProductRepository {
-    Product[] products = {
+    private Product[] products = {
             new Hamburger(1, "새우버거", 3500, 500, false, 4500),
             new Hamburger(2, "치킨버거", 4000, 600, false, 5000),
             new Side(3, "감자튀김", 1000, 300, 1),
@@ -16,5 +16,12 @@ public class ProductRepository {
 
     public Product[] getAllProducts() {
         return products;
+    }
+
+    public Product findById(int productId){
+        for(Product element : products)
+            if(element.getId() == productId)
+                return element;
+        return null;
     }
 }
